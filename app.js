@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 
 const userRouter = require('./routes/userRoutes');
+const dataRouter = require('./routes/dataRoutes');
 
 const app = express();
 
@@ -18,4 +19,5 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 app.use('/api/users', userRouter);
+app.use('/api/data', dataRouter);
 module.exports = app;
