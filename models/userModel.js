@@ -30,18 +30,11 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     validate: [validator.isEmail, 'Please provide a valid email'],
   },
-  ageRange: {
+  difficulty: {
     type: String,
     enum: ['1-3', '4-6', '7-8'],
     default: '1-3',
   },
-  region: {
-    type: String,
-  },
-  city: {
-    type: String,
-  },
-
   role: {
     type: String,
     enum: ['user', 'admin', 'parent'],
