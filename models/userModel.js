@@ -3,9 +3,22 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: [true, 'A user must have a username'],
+    unique: true,
+    trim: true,
+    validate: validator.isAlphanumeric,
+  },
   name: {
     type: String,
     required: [true, 'A user must have a name'],
+    trim: true,
+    validate: validator.isAlphanumeric,
+  },
+  surname: {
+    type: String,
+    required: [true, 'A user must have a surname'],
     trim: true,
     validate: validator.isAlphanumeric,
   },
@@ -17,9 +30,21 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
     validate: [validator.isEmail, 'Please provide a valid email'],
   },
+  ageRange: {
+    type: String,
+    enum: ['1-3', '4-6', '7-8'],
+    default: '1-3',
+  },
+  region: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+
   role: {
     type: String,
-    enum: ['user', 'admin'],
+    enum: ['user', 'admin', 'parent'],
     default: 'user',
   },
   password: {
@@ -42,6 +67,18 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
     select: false,
+  },
+  newsletters: {
+    type: Boolean,
+    default: false,
+  },
+  weeklyUpdates: {
+    type: Boolean,
+    default: false,
+  },
+  ranking: {
+    type: Boolean,
+    default: false,
   },
 });
 userSchema.pre('save', async function (next) {
