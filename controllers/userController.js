@@ -17,15 +17,7 @@ exports.getUser = async (req, res, next) => {
   }
 };
 exports.getMe = (req, res, next) => {
-  try {
-    req.params.id = req.user.id;
-  } catch (error) {
-    res.status(400).json({
-      status: 'fail',
-      message: error.message,
-    });
-  }
-
+  req.params.id = req.user.id;
   next();
 };
 exports.updateUser = async (req, res, next) => {
@@ -87,15 +79,16 @@ exports.updatePassword = async (req, res, next) => {
         status: 'fail',
         message: 'Your current password is wrong',
       });
-    }
-    user.password = req.body.password;
-    user.passwordConfirm = req.body.passwordConfirm;
-    await user.save();
+    } else {
+      user.password = req.body.password;
+      user.passwordConfirm = req.body.passwordConfirm;
+      await user.save();
 
-    res.status(200).json({
-      status: 'success',
-      message: 'Password updated successfully',
-    });
+      res.status(200).json({
+        status: 'success',
+        message: 'Password updated successfully',
+      });
+    }
   } catch (error) {
     res.status(400).json({
       status: 'fail',

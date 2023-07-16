@@ -1,11 +1,10 @@
 const jwt = require('jsonwebtoken');
-
 const User = require('../models/userModel');
 
 exports.signUp = async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
-    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+    const token = generateToken(newUser._id);
     res.status(201).json({
       status: 'success',
       token,
@@ -29,17 +28,19 @@ exports.login = async (req, res, next) => {
         status: 'fail',
         message: 'Please provide email and password',
       });
+      return;
     }
-    const user = await User.findOne({ email }).select('+password');
 
+    const user = await User.findOne({ email }).select('+password');
     if (!user || !(await user.correctPassword(password, user.password))) {
       res.status(401).json({
         status: 'fail',
         message: 'Incorrect email or password',
       });
+      return;
     }
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
+    const token = generateToken(user._id);
     res.status(200).json({
       status: 'success',
       token,
@@ -54,6 +55,7 @@ exports.login = async (req, res, next) => {
     });
   }
 };
+
 exports.protect = async (req, res, next) => {
   try {
     let token;
@@ -63,11 +65,13 @@ exports.protect = async (req, res, next) => {
     ) {
       token = req.headers.authorization.split(' ')[1];
     }
+
     if (!token) {
       res.status(401).json({
         status: 'fail',
         message: 'You are not logged in! Please log in to get access',
       });
+      return;
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -75,9 +79,11 @@ exports.protect = async (req, res, next) => {
     if (!currentUser) {
       res.status(401).json({
         status: 'fail',
-        message: 'The user belonging to this token does no longer exist',
+        message: 'The user belonging to this token does not exist',
       });
+      return;
     }
+
     req.user = currentUser;
     next();
   } catch (error) {
@@ -86,4 +92,9 @@ exports.protect = async (req, res, next) => {
       message: error.message,
     });
   }
+};
+const generateToken = (userId) => {
+  return jwt.sign({ id: userId }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES_IN,
+  });
 };
