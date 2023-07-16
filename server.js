@@ -20,8 +20,8 @@ const port = process.env.PORT || 3000;
 const server = app.listen(port, () =>
   console.log(`To do list API listening on port ${port}!`),
 );
-process.on('unhandle dRejection', (err) => {
-  console.log('Rejected Promise --server shoutdown');
+process.on('unhandledRejection', (err) => {
+  console.log('Rejected Promise --server shutdown');
   console.log(err.name, err.message);
   server.close(() => {
     process.exit(1);

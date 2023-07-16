@@ -17,7 +17,15 @@ exports.getUser = async (req, res, next) => {
   }
 };
 exports.getMe = (req, res, next) => {
-  req.params.id = req.user.id;
+  try {
+    req.params.id = req.user.id;
+  } catch (error) {
+    res.status(400).json({
+      status: 'fail',
+      message: error.message,
+    });
+  }
+
   next();
 };
 exports.updateUser = async (req, res, next) => {

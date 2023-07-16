@@ -33,7 +33,6 @@ const userSchema = new mongoose.Schema({
   difficulty: {
     type: String,
     enum: ['1-3', '4-6', '7-8'],
-    default: '1-3',
   },
   role: {
     type: String,
