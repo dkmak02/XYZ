@@ -1,0 +1,7 @@
+C:\Users\dkmak\Desktop\Cs-Lab\XYZ\XYZ\obj\Release\net7.0\linux-x64\XYZ.csproj.AssemblyReference.cache
+C:\Users\dkmak\Desktop\Cs-Lab\XYZ\XYZ\obj\Release\net7.0\linux-x64\XYZ.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dkmak\Desktop\Cs-Lab\XYZ\XYZ\obj\Release\net7.0\linux-x64\XYZ.AssemblyInfoInputs.cache
+C:\Users\dkmak\Desktop\Cs-Lab\XYZ\XYZ\obj\Release\net7.0\linux-x64\XYZ.AssemblyInfo.cs
+C:\Users\dkmak\Desktop\Cs-Lab\XYZ\XYZ\obj\Release\net7.0\linux-x64\XYZ.csproj.CoreCompileInputs.cache
+C:\Users\dkmak\Desktop\Cs-Lab\XYZ\XYZ\obj\Release\net7.0\linux-x64\XYZ.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\dkmak\Desktop\Cs-Lab\XYZ\XYZ\obj\Release\net7.0\linux-x64\XYZ.MvcApplicationPartsAssemblyInfo.cache
