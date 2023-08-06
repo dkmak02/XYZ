@@ -1,7 +1,6 @@
 ﻿using XYZ.Models;
 using FastEndpoints;
 using XYZ.Endpoints.Requests;
-using XYZ.Services.Dapper;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;

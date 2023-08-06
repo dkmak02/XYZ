@@ -1,5 +1,4 @@
 using FastEndpoints;
-using XYZ.Services.Dapper;
 using FastEndpoints.Security;
 using XYZ.Services.Auth;
 using XYZ.Services.MongoDB;
@@ -20,7 +19,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddFastEndpoints();
 builder.Services.AddJWTBearerAuth("TokenSigningKeyrwerwerqweqwtereqwewtyewewqrert");
-builder.Services.AddSingleton<IDapper, DapperM>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddSingleton<IMongo, Mongo>();
 var app = builder.Build();
