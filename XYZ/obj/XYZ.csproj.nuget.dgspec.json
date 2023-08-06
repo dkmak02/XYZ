@@ -41,22 +41,6 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "AWSSDK.Core": {
-              "target": "Package",
-              "version": "[3.7.200.10, )"
-            },
-            "Amazon.Lambda.AspNetCoreServer": {
-              "target": "Package",
-              "version": "[8.1.0, )"
-            },
-            "Amazon.Lambda.AspNetCoreServer.Hosting": {
-              "target": "Package",
-              "version": "[1.6.0, )"
-            },
-            "Dapper": {
-              "target": "Package",
-              "version": "[2.0.143, )"
-            },
             "FastEndpoints": {
               "target": "Package",
               "version": "[5.15.0, )"

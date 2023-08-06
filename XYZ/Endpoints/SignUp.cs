@@ -3,13 +3,11 @@ using FastEndpoints;
 using XYZ.Endpoints.Requests;
 using XYZ.Services.Dapper;
 using System.Data;
-using Dapper;
 using System.Data.Common;
 using System.Data.SqlClient;
 using FastEndpoints.Security;
 using XYZ.Endpoints.Responses;
 using XYZ.Mappers;
-using static Dapper.SqlMapper;
 using XYZ.Services.MongoDB;
 using XYZ.Services.Auth;
 
