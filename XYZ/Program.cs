@@ -23,16 +23,13 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddSingleton<IMongo, Mongo>();
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+app.UseDefaultExceptionHandler();
 app.UseCors("AllowAllOrigins");
 
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.UseFastEndpoints(c =>
 {
     c.Endpoints.RoutePrefix = "api";

@@ -1,5 +1,4 @@
-﻿using Amazon.Runtime;
-using FastEndpoints.Security;
+﻿using FastEndpoints.Security;
 using MongoDB.Driver;
 using System.IdentityModel.Tokens.Jwt;
 using XYZ.Models;
@@ -19,7 +18,10 @@ namespace XYZ.Services.Auth
             var user = (await con.FindAsync(c => c.Username == username)).FirstOrDefault();
             if (user is null)
             {
-                return "Invalid data";
+                return new
+                {
+                    message = "Invalid data"
+                };
             }
 
             if (!VerifyPassword(password, user.Password))

@@ -12,7 +12,7 @@ namespace XYZ.Endpoints
         }
         public override void Configure()
         {
-            Post("/login");
+            Post("users/login");
             AllowAnonymous();
         }
         public override async Task HandleAsync(LogInRequest req, CancellationToken ct)

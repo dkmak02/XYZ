@@ -1,14 +1,11 @@
 ﻿using XYZ.Models;
 using FastEndpoints;
 using XYZ.Endpoints.Requests;
-using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
-using FastEndpoints.Security;
 using XYZ.Endpoints.Responses;
 using XYZ.Mappers;
 using XYZ.Services.MongoDB;
 using XYZ.Services.Auth;
+using MongoDB.Driver;
 
 namespace XYZ.Endpoints
 {
@@ -22,30 +19,29 @@ namespace XYZ.Endpoints
         }
         public override void Configure()
         {
-            Post("/sign");
+            Post("users/sign");
             AllowAnonymous();
         }
 
         public override async Task HandleAsync(SignUpRequest req, CancellationToken ct)
         {
-            try
-            {
-                var user = Map.ToEntity(req);
+            var user = Map.ToEntity(req);
+            var con = _mongo.Conn<UserModel>("users");
+            var checkUsername = (await con.FindAsync(u => u.Username == user.Username)).FirstOrDefault();
+            //if (checkUsername is not null)
+            //{
 
-                var con = _mongo.Conn<UserModel>("users");
+            //}
+            //var checkEmail = (await con.FindAsync(u => u.Email == user.Email)).FirstOrDefault();
+            //if (checkEmail is not null)
+            //{
 
-                await con.InsertOneAsync(user);
-
-                await SendAsync(new (){ 
-                    token = _authService.GetToken(user.Id),
-                    user = user 
-                });
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
+            //}
+            await con.InsertOneAsync(user);
+            await SendAsync(new SignUpResponse(){ 
+                token = _authService.GetToken(user.Id),
+                user = user 
+             });
         }
            
     }
