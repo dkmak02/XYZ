@@ -140,3 +140,4 @@ C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Debug\net7.0\refint\XYZ.dll
 C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Debug\net7.0\XYZ.pdb
 C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Debug\net7.0\XYZ.genruntimeconfig.cache
 C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Debug\net7.0\ref\XYZ.dll
+C:\Users\dkmak\Desktop\Dyktando\XYZ\bin\Debug\net7.0\BCrypt.Net-Next.dll

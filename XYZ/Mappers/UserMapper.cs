@@ -1,5 +1,4 @@
 ﻿using FastEndpoints;
-using FastEndpoints.Security;
 using XYZ.Endpoints.Requests;
 using XYZ.Endpoints.Responses;
 using XYZ.Models;
@@ -10,10 +9,11 @@ namespace XYZ.Mappers
     {
         public override UserModel ToEntity(SignUpRequest req) => new UserModel
         {
+            
             Username = req.username,
             Email = req.email,
             Active = true,
-            Password = req.password,
+            Password = BCrypt.Net.BCrypt.EnhancedHashPassword(req.password),
             Role = "user"
         };
 

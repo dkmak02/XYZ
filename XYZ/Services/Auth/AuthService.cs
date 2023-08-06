@@ -42,7 +42,7 @@ namespace XYZ.Services.Auth
         }
         private bool VerifyPassword(string enteredPassword, string savedPasswordHash)
         {
-            return enteredPassword == savedPasswordHash;
+            return BCrypt.Net.BCrypt.EnhancedVerify(enteredPassword, savedPasswordHash);
         }
         public string GetToken(string id)
         {
