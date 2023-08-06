@@ -7,6 +7,7 @@ C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Release\net7.0\PubTmp\Out\XYZ.runtimecon
 C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Release\net7.0\PubTmp\Out\XYZ.pdb
 C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Release\net7.0\PubTmp\Out\AWSSDK.Core.dll
 C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Release\net7.0\PubTmp\Out\AWSSDK.SecurityToken.dll
+C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Release\net7.0\PubTmp\Out\BCrypt.Net-Next.dll
 C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Release\net7.0\PubTmp\Out\DnsClient.dll
 C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Release\net7.0\PubTmp\Out\FastEndpoints.dll
 C:\Users\dkmak\Desktop\Dyktando\XYZ\obj\Release\net7.0\PubTmp\Out\FastEndpoints.Attributes.dll

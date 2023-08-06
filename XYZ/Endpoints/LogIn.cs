@@ -1,4 +1,5 @@
 ﻿using FastEndpoints;
+using MongoDB.Bson;
 using XYZ.Endpoints.Requests;
 using XYZ.Services.Auth;
 
@@ -18,6 +19,8 @@ namespace XYZ.Endpoints
         public override async Task HandleAsync(LogInRequest req, CancellationToken ct)
         {
             var obj = await _authService.CredentialsAreVaild(req.login, req.password);
+            var token = ((dynamic)obj).Token;
+            this.HttpContext.Response.Headers.Add("Authorization", $"Bearer {token}");
             await SendAsync(obj);
         }
     }

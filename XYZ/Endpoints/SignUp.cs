@@ -38,8 +38,10 @@ namespace XYZ.Endpoints
 
             //}
             await con.InsertOneAsync(user);
+            var token = _authService.GetToken(user.Id);
+            this.HttpContext.Response.Headers.Add("Authorization", $"Bearer {token}");
             await SendAsync(new SignUpResponse(){ 
-                token = _authService.GetToken(user.Id),
+                token = token,
                 user = user 
              });
         }

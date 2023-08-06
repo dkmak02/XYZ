@@ -36,7 +36,7 @@ namespace XYZ.Services.Auth
             {
                 Token = GetToken(user.Id),
                 User = user,
-                Id = ReadIdFromToken(GetToken(user.Id))
+                //Id = ReadIdFromToken(GetToken(user.Id))
                 
             };
         }

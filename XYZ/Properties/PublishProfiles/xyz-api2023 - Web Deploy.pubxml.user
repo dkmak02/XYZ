@@ -7,7 +7,8 @@ Ten plik jest wykorzystywany przez proces publikowania/pakowania projektu intern
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAeocB3IYCYUyoZ0/ne/wQhAAAAAACAAAAAAAQZgAAAAEAACAAAADj6HqxaHskl6Ru+gtFBMygFUkiDa78e9uv8eqPnxVArgAAAAAOgAAAAAIAACAAAACb/1S7PmAhr7vMde6I6RA9cwrKDKz6qVb/ctx/nkriOoAAAABebzbFiPSaFHGfcG/cVj/ie3LV6/50JVmbH5JWrbrE5QMs3wifN2pOs8PkydOvvmvov334grY59Ocsa9jTPYEC7ND9HkexXvzp3PsQUrwstUslO+/lWC5a2MwvasGmB9FM2THLBkK+NZ2FVYetmD9p+av4nmwT7wGocIuCo1XIREAAAACnjPMcxboW+AfpDW/ylX/raAgu44sGDix8DPMnDrz3KlnFySOFIGslyebUSqjwEYfZ0Yu096GoKmzp0EsDnXhn</EncryptedPassword>
-    <History>True|2023-08-06T12:30:33.8645586Z;True|2023-08-06T13:34:07.6041773+02:00;True|2023-08-06T11:30:23.9668184+02:00;True|2023-08-06T11:11:11.7936245+02:00;True|2023-08-06T11:06:30.0035083+02:00;</History>
+    <History>True|2023-08-06T14:21:34.8601696Z;True|2023-08-06T14:30:33.8645586+02:00;True|2023-08-06T13:34:07.6041773+02:00;True|2023-08-06T11:30:23.9668184+02:00;True|2023-08-06T11:11:11.7936245+02:00;True|2023-08-06T11:06:30.0035083+02:00;</History>
     <LastFailureDetails />
+    <IsBasicAuthAllowed>True</IsBasicAuthAllowed>
   </PropertyGroup>
 </Project>
