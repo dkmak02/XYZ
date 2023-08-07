@@ -3,12 +3,13 @@ using MongoDB.Bson;
 using XYZ.Endpoints.Requests;
 using XYZ.Services.Auth;
 
-namespace XYZ.Endpoints
+namespace XYZ.Endpoints.UserEndpoints
 {
     public class LogIn : Endpoint<LogInRequest>
     {
         private readonly IAuthService _authService;
-        public LogIn(IAuthService authService) { 
+        public LogIn(IAuthService authService)
+        {
             _authService = authService;
         }
         public override void Configure()
@@ -20,7 +21,7 @@ namespace XYZ.Endpoints
         {
             var obj = await _authService.CredentialsAreVaild(req.login, req.password);
             var token = ((dynamic)obj).Token;
-            this.HttpContext.Response.Headers.Add("Authorization", $"Bearer {token}");
+            HttpContext.Response.Headers.Add("Authorization", $"Bearer {token}");
             await SendAsync(obj);
         }
     }

@@ -10,7 +10,7 @@
         "tags": [
           "XYZ, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
         ],
-        "operationId": "XYZEndpointsLogIn",
+        "operationId": "XYZEndpointsUserEndpointsLogIn",
         "consumes": [
           "application/json"
         ],
@@ -41,7 +41,7 @@
         "tags": [
           "XYZ, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
         ],
-        "operationId": "XYZEndpointsSignUp",
+        "operationId": "XYZEndpointsUserEndpointsSignUp",
         "consumes": [
           "application/json"
         ],
@@ -74,9 +74,74 @@
           }
         }
       }
+    },
+    "/api/data/categories": {
+      "post": {
+        "tags": [
+          "XYZ, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+        ],
+        "operationId": "XYZEndpointsCategoriesEndpointCreateCategory",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CategoryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "XYZ, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+        ],
+        "operationId": "XYZEndpointsCategoriesEndpointSendCategories",
+        "produces": [
+          "text/plain",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
     }
   },
   "definitions": {
+    "CategoryRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "ErrorResponse": {
       "type": "object",
       "properties": {

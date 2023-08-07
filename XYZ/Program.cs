@@ -1,5 +1,8 @@
 using FastEndpoints;
 using FastEndpoints.Security;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using XYZ.Services.Auth;
 using XYZ.Services.MongoDB;
 

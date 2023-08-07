@@ -1,5 +1,6 @@
 ﻿using FastEndpoints.Security;
 using MongoDB.Driver;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using XYZ.Models;
 using XYZ.Services.MongoDB;
@@ -48,11 +49,13 @@ namespace XYZ.Services.Auth
         {
 
             return JWTBearer.CreateToken(
-                signingKey: "TokenSigningKeyTokenSigningKey12312312312",
+                signingKey: "TokenSigningKeyrwerwerqweqwtereqwewtyewewqrert",
                 expireAt: DateTime.UtcNow.AddDays(1),
                 priviledges: u =>
                 {
                     u.Claims.Add(new("Id", id));
+                    u.Roles.Add("User");
+                    u.Permissions.AddRange(new[] { "ManageUsers", "ManageInventory" });
                 });
         }
         public string ReadIdFromToken(string token)

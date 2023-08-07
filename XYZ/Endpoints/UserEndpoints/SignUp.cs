@@ -7,13 +7,14 @@ using XYZ.Services.MongoDB;
 using XYZ.Services.Auth;
 using MongoDB.Driver;
 
-namespace XYZ.Endpoints
+namespace XYZ.Endpoints.UserEndpoints
 {
     public class SignUp : Endpoint<SignUpRequest, SignUpResponse, UserMapper>
-    { 
+    {
         private readonly IMongo _mongo;
         private readonly IAuthService _authService;
-        public SignUp(IMongo mongo, IAuthService authService) {
+        public SignUp(IMongo mongo, IAuthService authService)
+        {
             _mongo = mongo;
             _authService = authService;
         }
@@ -39,12 +40,13 @@ namespace XYZ.Endpoints
             //}
             await con.InsertOneAsync(user);
             var token = _authService.GetToken(user.Id);
-            this.HttpContext.Response.Headers.Add("Authorization", $"Bearer {token}");
-            await SendAsync(new SignUpResponse(){ 
+            HttpContext.Response.Headers.Add("Authorization", $"Bearer {token}");
+            await SendAsync(new SignUpResponse()
+            {
                 token = token,
-                user = user 
-             });
+                user = user
+            });
         }
-           
+
     }
 }
